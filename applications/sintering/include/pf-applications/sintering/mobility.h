@@ -614,7 +614,7 @@ namespace Sintering
     }
 
     double
-    Lnormal_abnormal() const
+    Lgb_normal_abnormal() const
     {
       return Lnormal_abnormal;
     }
