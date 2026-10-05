@@ -116,6 +116,9 @@ namespace Sintering
     double B       = 1;
     double kappa_c = 1;
     double kappa_p = 0.5;
+    double sigma0  = 1;
+    double d       = 1;
+    double C_TJ    = 1;
   };
 
   struct EnergyRealisticData
@@ -644,6 +647,15 @@ namespace Sintering
       prm.add_parameter("KappaP",
                         material_data.energy_abstract_data.kappa_p,
                         "Barrier height kappa_p.");
+      prm.add_parameter("Sigma0",
+                        material_data.energy_abstract_data.sigma0,
+                        "Surface energy coefficient sigma0.");
+      prm.add_parameter("d",
+                        material_data.energy_abstract_data.d,
+                        "Characteristic length scale d.");
+      prm.add_parameter("C_TJ",
+                        material_data.energy_abstract_data.C_TJ,
+                        "Triple junction energy coefficient C_TJ.");
       prm.leave_subsection();
 
       prm.enter_subsection("MobilityAbstract");
