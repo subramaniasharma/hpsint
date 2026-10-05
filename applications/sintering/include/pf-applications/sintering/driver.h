@@ -870,7 +870,13 @@ namespace Sintering
           kappa_c = params.material_data.energy_abstract_data.kappa_c;
           kappa_p = params.material_data.energy_abstract_data.kappa_p;
 
-          const bool gb_isotropic = params.material_data.mobility_abstract_data.Lnormal_normal == params.material_data.mobility_abstract_data.L && params.material_data.mobility_abstract_data.Lnormal_normal == params.material_data.mobility_abstract_data.Labnormal_abnormal && params.material_data.mobility_abstract_data.Lnormal_normal == params.material_data.mobility_abstract_data.Lnormal_abnormal;
+          const bool gb_isotropic =
+            params.material_data.mobility_abstract_data.Lnormal_normal ==
+              params.material_data.mobility_abstract_data.L &&
+            params.material_data.mobility_abstract_data.Lnormal_normal ==
+              params.material_data.mobility_abstract_data.Labnormal_abnormal &&
+            params.material_data.mobility_abstract_data.Lnormal_normal ==
+              params.material_data.mobility_abstract_data.Lnormal_abnormal;
           if (gb_isotropic)
             mobility_provider = std::make_shared<ProviderAbstract>(
               params.material_data.mobility_abstract_data.Mvol,
@@ -878,7 +884,7 @@ namespace Sintering
               params.material_data.mobility_abstract_data.Msurf,
               params.material_data.mobility_abstract_data.Mgb,
               params.material_data.mobility_abstract_data.L);
-          else if (params.material_data.anisotropy == "Anisotropic")
+          else
             mobility_provider = std::make_shared<ProviderAbstract>(
               params.material_data.mobility_abstract_data.Mvol,
               params.material_data.mobility_abstract_data.Mvap,
