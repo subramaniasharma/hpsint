@@ -632,9 +632,6 @@ namespace Sintering
       prm.add_parameter("Temperature",
                         material_data.temperature,
                         "Temperature profile.");
-      prm.add_parameter("Anisotropy",
-                        material_data.anisotropy,
-                        "Anisotropy of the material.");
 
       prm.enter_subsection("EnergyAbstract");
       prm.add_parameter("A",
