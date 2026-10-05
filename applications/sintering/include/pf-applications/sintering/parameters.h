@@ -183,8 +183,6 @@ namespace Sintering
     MobilityRealisticData mobility_realistic_data;
 
     MechanicsData mechanics_data;
-
-    std::string anisotropy = "Isotropic";
   };
 
   struct AdvectionData
