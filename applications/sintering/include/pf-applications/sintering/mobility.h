@@ -602,7 +602,7 @@ namespace Sintering
     }
 
     double
-    Lnormal_normal() const
+    Lgb_normal_normal() const
     {
       return Lnormal_normal;
     }
