@@ -1173,6 +1173,16 @@ namespace GrainTracker
       active_order_parameters = extract_active_order_parameter_ids(grains);
     }
 
+    void
+    set_grainAnisotropy(const std::vector<unsigned int> &ids)
+    {
+      for (auto &[gid, grain] : grains)
+        {
+          if (std::find(ids.begin(), ids.end(), gid) != ids.end())
+            grain.set_grain_type(Grain<dim>::GrainType::Abnormal);
+        }
+    }
+
   private:
     std::map<unsigned int, Grain<dim>>
     detect_grains(const BlockVectorType &solution,
