@@ -87,6 +87,8 @@
 #include <pf-applications/time_integration/time_marching.h>
 #include <pf-applications/time_integration/time_schemes.h>
 
+#include <random>
+
 namespace Sintering
 {
   using namespace dealii;
@@ -1636,6 +1638,25 @@ namespace Sintering
             MyScope    scope(timer, sc);
             gt_status =
               grain_tracker.initial_setup(solution, sintering_data.n_grains());
+
+            if (use_grain_types)
+              {
+                std::vector<unsigned int> aniosotropicIDs(
+                  sintering_data.n_grains() + 1);
+                std::iota(aniosotropicIDs.begin(), aniosotropicIDs.end(), 0);
+
+                std::mt19937 generator(42);
+                std::shuffle(aniosotropicIDs.begin(),
+                             aniosotropicIDs.end(),
+                             generator);
+
+                aniosotropicIDs.resize(5);
+                pcout << "Selected grain IDs for anisotropy: ";
+                for (const auto id : aniosotropicIDs)
+                  pcout << id << " ";
+                pcout << std::endl;
+                grain_tracker.set_grainAnisotropy(aniosotropicIDs);
+              }
           }
         else
           {
