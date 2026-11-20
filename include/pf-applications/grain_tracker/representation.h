@@ -20,7 +20,9 @@
 #include <pf-applications/base/debug.h>
 
 #include <boost/serialization/export.hpp>
+#include <boost/serialization/map.hpp>
 #include <boost/serialization/serialization.hpp>
+#include <boost/serialization/utility.hpp>
 
 #include <pf-applications/grain_tracker/ellipsoid.h>
 

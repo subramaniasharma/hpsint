@@ -17,6 +17,9 @@
 
 #include <pf-applications/lac/dynamic_block_vector.h>
 
+#include <boost/archive/binary_iarchive.hpp>
+#include <boost/archive/binary_oarchive.hpp>
+
 #include <pf-applications/grain_tracker/representation.h>
 
 using namespace dealii;
@@ -64,3 +67,5 @@ BOOST_CLASS_EXPORT(GrainTracker::RepresentationSpherical<2>)
 BOOST_CLASS_EXPORT(GrainTracker::RepresentationSpherical<3>)
 BOOST_CLASS_EXPORT(GrainTracker::RepresentationElliptical<2>)
 BOOST_CLASS_EXPORT(GrainTracker::RepresentationElliptical<3>)
+BOOST_CLASS_EXPORT(GrainTracker::RepresentationWavefront<2>)
+BOOST_CLASS_EXPORT(GrainTracker::RepresentationWavefront<3>)
